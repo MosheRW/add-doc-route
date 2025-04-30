@@ -6,6 +6,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "commonjs",
+  "private": false,  
+  "publisher": "MosheRW",
+  "homepage": "https://github.com/MosheRW/add-doc-route",
+  "bugs": "https://github.com/MosheRW/add-doc-route/issues",
+  "maintainers": [
+    "mosheRW"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MosheRW/add-doc-route.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
