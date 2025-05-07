@@ -27,36 +27,8 @@ export default function addDocsRoute(pathToSwaggerFile: string) {
     });
 
     router.get('/',
-        (req, res) => {
-            res.send(
-                `<header
-                style="display: flex; justify-self: center">
-                    <h1>under-1000 API specification</h1>                
-                </header>`
-                +
-                `<body
-                style="justify-self: center">
-                    <a
-                    href=${req.baseUrl}/swagger
-                    style="display: inline-block; padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">
-                        swagger
-                    </a>
-                    <a
-                    href=${req.baseUrl}/redocly
-                    style="display: inline-block; padding: 10px 15px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">
-                        redocly
-                    </a>
-                    <a
-                    href=${req.baseUrl}/${fileName}
-                    style="display: inline-block; padding: 10px 15px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">
-                        swagger.yaml doc
-                    </a>               
-                </body>`
-                +
-                `
-                `
-
-            )
+        (req: Request, res: Response) => {
+            res.sendFile(path.join(__dirname, '..', 'resources', 'menu.html'));
         }
     );
 
