@@ -3,6 +3,18 @@
   "summary": "add-doc-route, a simple way to add OpenAPI documentation to your express app",
   "version": "2.0.0",
   "description": "add-doc-route, a simple way to add OpenAPI documentation to your express app, you simply need to add path to YAML file of your OpenAPI spec and you're good to go",
+  "tags": [
+    "express",
+    "openapi",
+    "swagger",
+    "redocly",
+    "documentation",
+    "api",
+    "typescript",
+    "nodejs",
+    "cli",
+    "cli-tool"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": "dist/cli.js",
