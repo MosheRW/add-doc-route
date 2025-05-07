@@ -5,6 +5,7 @@
   "description": "add-doc-route, a simple way to add OpenAPI documentation to your express app, you simply need to add path to YAML file of your OpenAPI spec and you're good to go",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": "dist/cli.js",
   "type": "commonjs",
   "private": false,
   "publisher": "MosheRW",
@@ -25,7 +26,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commander": "^13.1.0",
     "js-yaml": "^4.1.0",
+    "open": "^10.1.2",
     "redoc-express": "^2.1.0",
     "swagger-ui-express": "^5.0.1"
   },
