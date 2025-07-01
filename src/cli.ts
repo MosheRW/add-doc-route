@@ -59,10 +59,29 @@ if (options.swagger) {
     openApp(finalPath, 'swagger');
 }
 
-function openApp(path: string, route: string) {
+export function openApp(path: string, route: string, port: number = 3000, tries: number = 0): void {
+
     const app = express();
     app.use('/', addDocsRoute(path));
-    app.listen(3000);
-    open(`http://localhost:3000/${route}`);
-    console.log(`server running on http://localhost:3000/${route}`);
+
+    const server = app.listen(port);
+
+    server.on('error', (error: NodeJS.ErrnoException) => {
+        if (error.code === 'EADDRINUSE' && tries < 10) {
+            openApp(path, route, port + 1, tries + 1);
+        } else {
+            console.error('Server error:', error);
+            process.exit(1);
+        }
+    });
+
+    server.on('listening',
+        () => {
+            if (tries > 0)
+                console.log(`port ${port - tries} already in use,\nserver running on http://localhost:${port}/${route}`);
+            else
+                console.log(`server running on http://localhost:${port}/${route}`);
+            open(`http://localhost:${port}/${route}`);
+        }
+    );
 }

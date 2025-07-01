@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.openApp = openApp;
 const commander_1 = require("commander");
 const index_1 = __importDefault(require("./index"));
 const express_1 = __importDefault(require("express"));
@@ -50,10 +51,24 @@ if (options.swagger) {
     ;
     openApp(finalPath, 'swagger');
 }
-function openApp(path, route) {
+function openApp(path, route, port = 3000, tries = 0) {
     const app = (0, express_1.default)();
     app.use('/', (0, index_1.default)(path));
-    app.listen(3000);
-    (0, open_1.default)(`http://localhost:3000/${route}`);
-    console.log(`server running on http://localhost:3000/${route}`);
+    const server = app.listen(port);
+    server.on('error', (error) => {
+        if (error.code === 'EADDRINUSE' && tries < 10) {
+            openApp(path, route, port + 1, tries + 1);
+        }
+        else {
+            console.error('Server error:', error);
+            process.exit(1);
+        }
+    });
+    server.on('listening', () => {
+        if (tries > 0)
+            console.log(`port ${port - tries} already in use,\nserver running on http://localhost:${port}/${route}`);
+        else
+            console.log(`server running on http://localhost:${port}/${route}`);
+        (0, open_1.default)(`http://localhost:${port}/${route}`);
+    });
 }
