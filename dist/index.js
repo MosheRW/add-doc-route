@@ -70,7 +70,13 @@ function addDocsRoute(pathToSwaggerFile) {
         res.json(openapiSpec.jsonV);
     });
     router.get('/', (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, '..', 'resources', 'menu.html'));
+        const homePage = fs_1.default.readFileSync(path_1.default.join(__dirname, '..', 'resources', 'menu.html'), 'utf8');
+        const output = homePage
+            .replace("{{swagger.json}}", `${req.originalUrl}/swagger.json`)
+            .replace("{{swagger.yaml}}", `${req.originalUrl}/swagger.yaml`)
+            .replace("{{redocly}}", `${req.originalUrl}/redocly`)
+            .replace("{{swagger}}", `${req.originalUrl}/swagger`);
+        res.send(output);
     });
     return router;
 }
