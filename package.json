@@ -1,7 +1,7 @@
 {
   "name": "add-doc-route",
   "summary": "add-doc-route, a simple way to add OpenAPI documentation to your express app",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "add-doc-route, a simple way to add OpenAPI documentation to your express app, you simply need to add path to YAML file of your OpenAPI spec and you're good to go",
   "tags": [
     "express",
