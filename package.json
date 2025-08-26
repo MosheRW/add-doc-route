@@ -24,8 +24,12 @@
   "homepage": "https://github.com/MosheRW/add-doc-route",
   "bugs": "https://github.com/MosheRW/add-doc-route/issues",
   "maintainers": [
-    "mosheRW"
+    "mosherw"
   ],
+    "publishConfig": {
+    "access": "public",
+    "registry": ["https://npm.pkg.github.com/", "https://registry.npmjs.org/"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MosheRW/add-doc-route.git"
