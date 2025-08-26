@@ -1,5 +1,5 @@
 {
-  "name": "add-doc-route",
+  "name": "@mosherw/add-doc-route",
   "summary": "add-doc-route, a simple way to add OpenAPI documentation to your express app",
   "version": "2.0.2",
   "description": "add-doc-route, a simple way to add OpenAPI documentation to your express app, you simply need to add path to YAML file of your OpenAPI spec and you're good to go",
@@ -20,26 +20,26 @@
   "bin": "dist/cli.js",
   "type": "commonjs",
   "private": false,
-  "publisher": "MosheRW",
+  "publisher": "mosherw",
   "homepage": "https://github.com/MosheRW/add-doc-route",
   "bugs": "https://github.com/MosheRW/add-doc-route/issues",
   "maintainers": [
     "mosherw"
   ],
-    "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MosheRW/add-doc-route.git"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-         "publish:npm": "npm publish --registry=https://registry.npmjs.org/ --access=public",
-  "publish:github": "npm publish --registry=https://npm.pkg.github.com/ --access=public --name=@mosherw/add-doc-route",
-  "publish:all": "npm run build && npm run publish:npm && npm run publish:github"
+    "publish:npm": "npm publish --registry=https://registry.npmjs.org/ --access public",
+    "publish:github": "npm publish --registry=https://npm.pkg.github.com/ --access public",
+    "publish:all": "npm run build && npm run publish:npm && npm run publish:github"
   },
   "keywords": [],
   "author": "",
